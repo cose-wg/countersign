@@ -33,6 +33,12 @@ I have switched to the single word version except for tables 3 and 4 where it ca
         <email>ietf@augustcellars.com</email>
       </address>
     </author>
+    <author initials="R." surname="Housley" fullname="Russ Housley" role="editor">
+      <organization abbrev="Vigil Security">Vigil Security, LLC</organization>
+      <address>
+        <email>housley@vigilsec.com</email>
+      </address>
+    </author>
     <date/>
     <area>Security</area>
     <workgroup>COSE Working Group</workgroup>
@@ -50,7 +56,7 @@ I have switched to the single word version except for tables 3 and 4 where it ca
       <!-- RFC EDITOR - Please remove this note before publishing -->
       <t>
         The source for this draft is being maintained in GitHub.
-        Suggested changes should be submitted as pull requests  at <eref target="https://github.com/cose-wg/cose-rfc8152bis"/>.
+        Suggested changes should be submitted as pull requests  at <eref target="https://github.com/cose-wg/countersign"/>.
         Instructions are on that page as well.
         Editorial changes can be managed in GitHub, but any substantial issues need to be discussed on the COSE mailing list.
       </t>
@@ -785,7 +791,10 @@ bf054e1c7b4d91d6280',
     <section numbered="false">
       <name>Acknowledgments</name>
       <t>This document is a product of the COSE working group of the IETF.  </t>
-      <t>The initial version of the specification was based to some degree on the outputs of the JOSE and S/MIME working groups.  </t>
+      <t>The initial version of the specification was based to some degree on the outputs of the JOSE and S/MIME working groups.</t>
+      <t>Jim Schaad passed on 3 October 2020.  This document is primarily his work.  Russ Housley served as the document editor after Jim's untimely death, mostly helping with the approval and publication processes.  Jim deserves all credit for the technical content.</t>
+      <!-- RFC EDITOR - Please remove this note before publishing -->
+      <t>{{{ RFC EDITOR: Please remove Russ Housley as an author of this document at publication.  Jim Schaad should be listed as the sole author. }}}</t>
       <!--
       <t>
         The following individuals provided input into the final form of the document: Carsten Bormann.
