@@ -264,8 +264,8 @@ COSE_Countersignature = COSE_Signature
         </t>
         
         <t>          
-          An example of a countersignature on a signature can be found in <xref target="Appendix_B_1_3"/>. 
-          An example of a countersignature in an encryption object can be found in <xref target="Appendix_B_3_3"/>. 
+          An example of a countersignature on a signature can be found in <xref target="Appendix_A_1_1"/>. 
+          An example of a countersignature in an encryption object can be found in <xref target="Appendix_A_2_1"/>. 
         </t>
         
         <t>
@@ -650,23 +650,24 @@ This document removes inconsistencies with other specifications of JSON, repairs
 
     <section anchor="examples">
       <name>Examples</name>
-      <t>This appendix includes a set of examples that show the different features and message types that have been defined in this document.  To make the examples easier to read, they are presented using the extended CBOR diagnostic notation (defined in <xref target="RFC8610"/>) rather than as a binary dump.  </t>
-      <t>
-        A GitHub project has been created at &lt;https://github.com/cose-wg/Examples&gt; that contains not only the examples presented in this document, but a more complete set of testing examples as well.
-        Each example is found in a JSON file that contains the inputs used to create the example, some of the intermediate values that can be used in debugging the example and the output of the example presented both as a hex dump and in CBOR diagnostic notation format.
-        Some of the examples at the site are designed failure testing cases; these are clearly marked as such in the JSON file.
-        If errors in the examples in this document are found, the examples on GitHub will be updated, and a note to that effect will be placed in the JSON file.
+      <t>This appendix includes a set of examples that show the different features and message types that have been defined in this document.  To make the examples easier to read, they are presented using the extended CBOR diagnostic notation (defined in <xref target="RFC8610"/>) rather than as a binary dump.
       </t>
-      <t>As noted, the examples are presented using the CBOR's diagnostic notation.  A Ruby-based tool exists that can convert between the diagnostic notation and binary.  This tool can be installed with the command line: </t>
-      <sourcecode type=""><![CDATA[gem install cbor-diag]]></sourcecode>
-      <t>The diagnostic notation can be converted into binary files using the following command line: </t>
+      <t>The examples are presented using the CBOR's diagnostic notation.  A Ruby-based tool exists that can convert between the diagnostic notation and binary.  This tool can be installed with the command line:
+      </t>
+      <sourcecode type=""><![CDATA[gem install cbor-diag]]>
+      </sourcecode>
+      <t>The diagnostic notation can be converted into binary files using the following command line:
+      </t>
       <sourcecode type=""><![CDATA[diag2cbor.rb < inputfile > outputfile
-]]></sourcecode>
-      <t>The examples can be extracted from the XML version of this document via an XPath expression as all of the sourcecode is tagged with the attribute type='CBORdiag'.  (Depending on the XPath evaluator one is using, it may be necessary to deal with &amp;gt; as an entity.) </t>
-      <sourcecode type="XPATH"><![CDATA[//sourcecode[@type='CDDL']/text()]]></sourcecode>
+]]>
+      </sourcecode>
+      <t>The examples can be extracted from the XML version of this document via an XPath expression as all of the sourcecode is tagged with the attribute type='CBORdiag'.  (Depending on the XPath evaluator one is using, it may be necessary to deal with &amp;gt; as an entity.)
+      </t>
+      <sourcecode type="XPATH"><![CDATA[//sourcecode[@type='CDDL']/text()]]>
+      </sourcecode>
       <section anchor="SignedExamples">
         <name>Examples of Signed Messages</name>
-        <section anchor="Appendix_B_1_3">
+        <section anchor="Appendix_A_1_1">
             <name>Countersignature</name>
           <t>This example uses the following:
           </t>
@@ -708,13 +709,14 @@ This document removes inconsistencies with other specifications of JSON, repairs
     ]
   ]
 )
-]]></sourcecode>
+]]>
+        </sourcecode>
         </section>
       </section>
 
       <section anchor="EnvelopedExamples">
         <name>Examples of Enveloped Messages</name>
-        <section anchor="Appendix_B_3_3">
+        <section anchor="Appendix_A_2_1">
             <name>Countersignature on Encrypted Content</name>
           <t>This example uses the following:
           </t>
@@ -767,7 +769,8 @@ bf054e1c7b4d91d6280',
     ]
   ]
 )
-]]></sourcecode>
+]]>
+        </sourcecode>
         </section>
       </section>
     </section>
