@@ -688,7 +688,7 @@ This document removes inconsistencies with other specifications of JSON, repairs
   [
     / protected / h'', 
     / unprotected / {
-      / countersign / 7:[
+      / countersign / 11:[
         / protected  h'a10126' / << {
             / alg / 1:-7 / ECDSA 256 /
           } >>, 
@@ -739,7 +739,7 @@ This document removes inconsistencies with other specifications of JSON, repairs
       } >>, 
     / unprotected / {
       / iv / 5:h'c9cf4df2fe6c632bf7886413', 
-      / countersign / 7:[
+      / countersign / 11:[
         / protected / h'a1013823' / {
             \ alg \ 1:-36
           } / , 
