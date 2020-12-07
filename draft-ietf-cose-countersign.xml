@@ -719,7 +719,49 @@ This document removes inconsistencies with other specifications of JSON, repairs
 ]]></sourcecode>
         </section>
       </section>
-
+      <section anchor="Signed1Examples">
+        <name>Examples of Signed1 Messages</name>
+        <section anchor="Appendix_B_2_3">
+            <name>Countersignature</name>
+          <t>This example uses the following:
+          </t>
+            <ul>
+              <li>Signature Algorithm: ECDSA w/ SHA-256, Curve P-256</li>
+              <li>Countersignature Algorithm: ECDSA w/ SHA-512, Curve P-521</li>
+          </ul>
+          <t>Size of binary file is 275 bytes</t>
+          <sourcecode type="CBORdiag"><![CDATA[
+18(
+  [
+    / protected h'A201260300' / << {
+      / alg / 1:-7, / ECDSA 256 /
+      / ctyp / 3:0
+    } >>,
+    / unprotected / {
+      / kid / 4: "11",
+      / countersign / 11: [
+        / protected h'A1013823' / << {
+          / alg / 1:-36 / ECDSA 512 /
+        } >>,
+        / unprotected / {
+          / kid / 4: "bilbo.baggins@hobbiton.example"
+        },
+        / signature / h'01B1291B0E60A79C459A4A9184A0D393E034B34AF069
+A1CCA34F5A913AFFFF698002295FA9F8FCBFB6FDFF59132FC0C406E98754A98F1FBF
+E81C03095F481856BC470170227206FA5BEE3C0431C56A66824E7AAF692985952E31
+271434B2BA2E47A335C658B5E995AEB5D63CF2D0CED367D3E4CC8FFFD53B70D115BA
+A9E86961FBD1A5CF'
+      ]
+    },
+    / payload / 'This is the content.',
+    / signature / h'BB587D6B15F47BFD54D2CBFCECEF75451E92B08A514BD439
+FA3AA65C6AC92DF0D7328C4A47529B32ADD3DD1B4E940071C021E9A8F2641F1D8E3B
+053DDD65AE52'
+  ]
+)
+]]></sourcecode>
+        </section>
+      </section>
       <section anchor="EnvelopedExamples">
         <name>Examples of Enveloped Messages</name>
         <section anchor="Appendix_B_3_3">
@@ -729,6 +771,7 @@ This document removes inconsistencies with other specifications of JSON, repairs
             <ul>
               <li>CEK: AES-GCM w/ 128-bit key</li>
               <li>Recipient class: ECDH Ephemeral-Static, Curve P-256</li>
+              <li>Countersignature Algorithm: ECDSA w/ SHA-512, Curve P-521</li>
           </ul>
           <t>Size of binary file is 326 bytes</t>
           <sourcecode type="CBORdiag"><![CDATA[
@@ -740,9 +783,9 @@ This document removes inconsistencies with other specifications of JSON, repairs
     / unprotected / {
       / iv / 5:h'c9cf4df2fe6c632bf7886413', 
       / countersign / 11:[
-        / protected / h'a1013823' / {
-            \ alg \ 1:-36
-          } / , 
+        / protected h'a1013823' / << {
+            / alg / 1:-36 / ES512 /
+          } >> , 
         / unprotected / {
           / kid / 4:'bilbo.baggins@hobbiton.example'
         }, 
@@ -780,12 +823,127 @@ bf054e1c7b4d91d6280',
       </section>
       <section anchor="EncryptExamples">
         <name>Examples of Encrypted Messages</name>
+        <section anchor="Appendix_B_4_3">
+            <name>Countersignature on Encrypted Content</name>
+          <t>This example uses the following:
+          </t>
+            <ul>
+              <li>CEK: AES-GCM w/ 128-bit key</li>
+              <li>Countersignature algorithm: EdDSA with Curve Ed25519</li>
+          </ul>
+          <t>Size of binary file is 136 bytes</t>
+          <sourcecode type="CBORdiag"><![CDATA[
+16(
+  [
+    / protected h'A10101' / << {
+      / alg / 1:1 / AES-GCM 128 /
+    } >>, 
+    / unprotected / {
+      / iv / 5: h'02D1F7E6F26C43D4868D87CE', 
+      / countersign / 11: [
+        / protected h'A10127' / << {
+          / alg / 1:-8 / EdDSA with Ed25519 /
+        } >>, 
+        / unprotected / {
+          / kid / 4: '11'
+        },
+        / signature / h'E10439154CC75C7A3A5391491F88651E0292FD0FE0E0
+2CF740547EAF6677B4A4040B8ECA16DB592881262F77B14C1A086C02268B17171CA1
+6BE4B8595F8C0A08'
+      ]
+    },
+    / ciphertext / h'60973A94BB2898009EE52ECFD9AB1DD25867374B162E2C0
+3568B41F57C3CC16F9166250A'
+  ]
+)
+]]></sourcecode>
+        </section>
       </section>
       <section anchor="MacExamples">
         <name>Examples of MACed Messages</name>
+        <section anchor="Appendix_B_5_3">
+            <name>Countersignature on MAC Content</name>
+          <t>This example uses the following:
+          </t>
+            <ul>
+              <li>MAC algorithm: HMAC/SHA-256 with 256-bit key</li>
+              <li>Countersignature algorithm: EdDSA with Curve Ed25519</li>
+          </ul>
+          <t>Size of binary file is 159 bytes</t>
+          <sourcecode type="CBORdiag"><![CDATA[
+97(
+  [
+    / protected h'A10105' / << {
+      / alg / 1:5 / HS256 /
+    } >>, 
+    / unprotected / {
+      / countersign / 11: [
+        / protected h'A10127' / << {
+          / alg / 1:-8 / EdDSA /
+        } >>, 
+        / unprotected / {
+          / kid / 4: '11'
+        },
+        / signature / h'602566F4A311DC860740D2DF54D4864555E85BC036EA
+5A6CF7905B96E499C5F66B01C4997F6A20C37C37543ADEA1D705347D38A5B13594B2
+9583DD741F455101' 
+      ]
+    }, 
+    / payload / 'This is the content.',
+    / tag / h'2BDCC89F058216B8A208DDC6D8B54AA91F48BD63484986565105C9
+AD5A6682F6', 
+    / recipients / [
+      [
+        / protected / h'',
+        / unprotected / {
+          / alg / 1: -6, / direct /
+          / kid / 4: 'our-secret'
+        }, 
+        / ciphertext / h''
+      ]
+    ]
+  ]
+)
+]]></sourcecode>
+        </section>
       </section>
       <section anchor="Mac0Examples">
         <name>Examples of MAC0 Messages</name>
+        <section anchor="Appendix_B_6_3">
+            <name>Countersignature on MAC0 Content</name>
+          <t>This example uses the following:
+          </t>
+            <ul>
+              <li>MAC algorithm: HMAC/SHA-256 with 256-bit key</li>
+              <li>Countersignature algorithm: EdDSA with Curve Ed25519</li>
+          </ul>
+          <t>Size of binary file is 159 bytes</t>
+          <sourcecode type="CBORdiag"><![CDATA[
+17(
+  [
+    / protected h'A10105' / << {
+      / alg / 1:5 / HS256 /
+    } >>, 
+    / unprotected / {
+      / countersign / 11: [
+        / protected h'A10127' / << {
+          / alg / 1:-8 / EdDSA /
+        } >>, 
+        / unprotected / {
+          / kid / 4: '11'
+        },
+        / signature / h'968A315DF6B4F26362E11F4CFD2F2F4E76232F39657B
+F1598837FF9332CDDD7581E248116549451F81EF823DA5974F885B681D3D6E38FC41
+42D8F8E9E7DC8F0D' 
+      ]
+    }, 
+    / payload / 'This is the content.',
+    / tag / h'A1A848D3471F9D61EE49018D244C824772F223AD4F935293F1789F
+C3A08D8C58'
+  ]
+)
+]]></sourcecode>
+        </section>
       </section>
     </section>
     <section numbered="false">
