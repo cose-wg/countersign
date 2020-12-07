@@ -672,6 +672,11 @@ This document removes inconsistencies with other specifications of JSON, repairs
 ]]></sourcecode>
       <t>The examples can be extracted from the XML version of this document via an XPath expression as all of the sourcecode is tagged with the attribute type='CBORdiag'.  (Depending on the XPath evaluator one is using, it may be necessary to deal with &amp;gt; as an entity.) </t>
       <sourcecode type="XPATH"><![CDATA[//sourcecode[@type='CDDL']/text()]]></sourcecode>
+      <section removeInRFC="true">
+        <name>Use of Early Code Points</name>
+        <!--  RFC Editor - Please remove this section prior to publication -->
+	<t>The examples in this Appendix use code points proposed for early allocation by IANA.  When IANA makes the allocation, these examples will be updated as needed.</t>
+      </section>
       <section anchor="SignedExamples">
         <name>Examples of Signed Messages</name>
         <section anchor="Appendix_B_1_3">
