@@ -948,6 +948,7 @@ C3A08D8C58'
       <t>This document is a product of the COSE working group of the IETF.  </t>
       <t>The initial version of the specification was based to some degree on the outputs of the JOSE and S/MIME working groups.</t>
       <t>Jim Schaad passed on 3 October 2020.  This document is primarily his work.  Russ Housley served as the document editor after Jim's untimely death, mostly helping with the approval and publication processes.  Jim deserves all credit for the technical content.</t>
+      <t>Jim Schaad and Jonathan Hammell provided the examples in the Appendix.</t>
       <!-- RFC EDITOR - Please remove this note before publishing -->
       <t>{{{ RFC EDITOR: Please remove Russ Housley as an author of this document at publication.  Jim Schaad should be listed as the sole author. }}}</t>
       <!--
