@@ -264,8 +264,8 @@ COSE_Countersignature = COSE_Signature
         </t>
         
         <t>          
-          An example of a countersignature on a signature can be found in <xref target="Appendix_B_1_3"/>. 
-          An example of a countersignature in an encryption object can be found in <xref target="Appendix_B_3_3"/>. 
+          An example of a countersignature on a signature can be found in <xref target="Appendix_A_1_1"/>. 
+          An example of a countersignature in an encryption object can be found in <xref target="Appendix_A_2_1"/>. 
         </t>
         
         <t>
@@ -450,7 +450,7 @@ array to avoid confusion.
         </t>
 
         <t>
-          IANA is requested to register the following new items in the registry.
+          IANA is requested to register the following new items in the registry. For these entries, the Value Registry column will be blank and the Reference column will be [[This Document]].
         </t>
 
         <table>
@@ -460,7 +460,6 @@ array to avoid confusion.
               <th>Name</th>
               <th>Label</th>
               <th>Value Type</th>
-              <th>Value Registry</th>
               <th>Description</th>
             </tr>
           </thead>
@@ -469,14 +468,12 @@ array to avoid confusion.
               <td>counter signature version 2</td>
               <td>TBD10</td>
               <td>COSE_Countersignature / [+ COSE_Countersignature ]</td>
-              <td/>
               <td>V2 countersignature attribute</td>
             </tr>
             <tr>
               <td>Countersignature0 version 2</td>
               <td>TBD11</td>
               <td>COSE_Countersignature0</td>
-              <td/>
               <td>Abbreviated Counter signature vesion 2</td>
             </tr>
           </tbody>
@@ -491,35 +488,29 @@ array to avoid confusion.
     <section anchor="security-considerations">
       <name>Security Considerations</name>
       <t>
-        TODO - review and trim as needed.
-      </t>
-      <t>
         There are a number of security considerations that need to be taken into account by implementers of this specification.
         While some considerations have been highlighted here, additional considerations may be found in the documents listed in the references.
       </t>
       <t>Implementations need to protect the private key material for any individuals.  There are some cases that need to be highlighted on this issue.
-     
       </t>
       <ul>
-        <li>Using the same key for two different algorithms can leak information about the key.  It is therefore recommended that keys be restricted to a single algorithm.  </li>
-        <li>Use of 'direct' as a recipient algorithm combined with a second recipient algorithm exposes the direct key to the second recipient.  </li>
+        <li>Using the same key for two different algorithms can leak information about the key.  It is therefore recommended that keys be restricted to a single algorithm.</li>
+        <li>Use of 'direct' as a recipient algorithm combined with a second recipient algorithm exposes the direct key to the second recipient.</li>
         <li>Several of the algorithms in <xref target="I-D.ietf-cose-rfc8152bis-algs"/> have limits on the number of times that a key can be used without leaking information about the key.</li>
       </ul>
-      <t>The use of ECDH and direct plus KDF (with no key wrap) will not directly lead to the private key being leaked; the one way function of the KDF will prevent that.  There is, however, a different issue that needs to be addressed.  Having two recipients requires that the CEK be shared between two recipients.  The second recipient therefore has a CEK that was derived from material that can be used for the weak proof of origin.  The second recipient could create a message using the same CEK and send it to the first recipient; the first recipient would, for either static-static ECDH or direct plus KDF, make an assumption that the CEK could be used for proof of origin even though it is from the wrong entity.  If the key wrap step is added, then no proof of origin is implied and this is not an issue.  </t>
+      <t>The use of ECDH and direct plus KDF (with no key wrap) will not directly lead to the private key being leaked; the one way function of the KDF will prevent that.  There is, however, a different issue that needs to be addressed.  Having two recipients requires that the CEK be shared between two recipients.  The second recipient therefore has a CEK that was derived from material that can be used for the weak proof of origin.  The second recipient could create a message using the same CEK and send it to the first recipient; the first recipient would, for either static-static ECDH or direct plus KDF, make an assumption that the CEK could be used for proof of origin even though it is from the wrong entity.  If the key wrap step is added, then no proof of origin is implied and this is not an issue.
+      </t>
       <t>
         <!--
             p. 55 "the use of a single key for multiple algorithms has been demonstrated in some cases to leak information about a key ..." Maybe "a key" to "the key" if we're talking about that specific key.  It'd be good to have links to references going over the cases too.  – changed ‘a’ to ‘that’.  
             [JLS] Are you looking for links to each of those three instances or something else?  It may be that this should be removed from the document as the “mentioned before” is no longer relevant in the structure document only in the algorithm document – 
             ALL: Should this just be killed?
         -->
-            
-        Although it has been mentioned before, the use of a single key for multiple algorithms has been demonstrated in some cases to leak information about that key, provide the opportunity for attackers to forge integrity tags, or gain information about encrypted content.
-        Binding a key to a single algorithm prevents these problems.
-        Key creators and key consumers are strongly encouraged not only to create new keys for each different algorithm, but to include that selection of algorithm in any distribution of key material and strictly enforce the matching of algorithms in the key structure to algorithms in the message structure.
-        In addition to checking that algorithms are correct, the key form needs to be checked as well.
-        Do not use an 'EC2' key where an 'OKP' key is expected.
+        Although it has been mentioned before, the use of a single key for multiple algorithms has been demonstrated in some cases to leak information about that key, provide the opportunity for attackers to forge integrity tags, or gain information about encrypted content. Binding a key to a single algorithm prevents these problems.
       </t>
-      <t>Before using a key for transmission, or before acting on information received, a trust decision on a key needs to be made.  Is the data or action something that the entity associated with the key has a right to see or a right to request? A number of factors are associated with this trust decision.  Some of the ones that are highlighted here are:
+      <t>Key creators and key consumers are strongly encouraged not only to create new keys for each different algorithm, but to include that selection of algorithm in any distribution of key material and strictly enforce the matching of algorithms in the key structure to algorithms in the message structure. In addition to checking that algorithms are correct, the key form needs to be checked as well. Do not use an 'EC2' key where an 'OKP' key is expected.
+      </t>
+      <t>Before using a key for transmission, or before acting on information received, a trust decision on a key needs to be made.  Is the data or action something that the entity associated with the key has a right to see or a right to request? A number of factors are associated with this trust decision. Some of the ones that are highlighted here are:
       </t>
       <ul>
         <li>What are the permissions associated with the key owner?</li>
@@ -528,7 +519,8 @@ array to avoid confusion.
         <li>Is the request something that is reasonable, given the current state of the application?</li>
         <li>Have any security considerations that are part of the message been enforced (as specified by the application or 'crit' header parameter)?</li>
       </ul>
-      <t>One area that has been getting exposure is traffic analysis of encrypted messages based on the length of the message.  This specification does not provide for a uniform method of providing padding as part of the message structure.  An observer can distinguish between two different messages (for example, 'YES' and 'NO') based on the length for all of the content encryption algorithms that are defined in <xref target="I-D.ietf-cose-rfc8152bis-algs"/> document.  This means that it is up to the applications to document how content padding is to be done in order to prevent or discourage such analysis.  (For example, the text strings could be defined as 'YES' and 'NO '.) </t>
+      <t>Analysis of the size of encrypted messages can provide information about the plaintext messages. This specification does not provide a uniform method for padding messages prior to encryption. An observer can distinguish between two different messages (for example, 'YES' and 'NO') based on the length for all of the content encryption algorithms that are defined in <xref target="I-D.ietf-cose-rfc8152bis-algs"/>.  This means that it is up to the applications to specify how content padding is to be done to prevent or discourage such analysis.  (For example, the text strings could be defined as 'YES' and 'NO '.)
+      </t>
     </section>
 
     <section removeInRFC="true">
@@ -658,23 +650,24 @@ This document removes inconsistencies with other specifications of JSON, repairs
 
     <section anchor="examples">
       <name>Examples</name>
-      <t>This appendix includes a set of examples that show the different features and message types that have been defined in this document.  To make the examples easier to read, they are presented using the extended CBOR diagnostic notation (defined in <xref target="RFC8610"/>) rather than as a binary dump.  </t>
-      <t>
-        A GitHub project has been created at &lt;https://github.com/cose-wg/Examples&gt; that contains not only the examples presented in this document, but a more complete set of testing examples as well.
-        Each example is found in a JSON file that contains the inputs used to create the example, some of the intermediate values that can be used in debugging the example and the output of the example presented both as a hex dump and in CBOR diagnostic notation format.
-        Some of the examples at the site are designed failure testing cases; these are clearly marked as such in the JSON file.
-        If errors in the examples in this document are found, the examples on GitHub will be updated, and a note to that effect will be placed in the JSON file.
+      <t>This appendix includes a set of examples that show the different features and message types that have been defined in this document.  To make the examples easier to read, they are presented using the extended CBOR diagnostic notation (defined in <xref target="RFC8610"/>) rather than as a binary dump.
       </t>
-      <t>As noted, the examples are presented using the CBOR's diagnostic notation.  A Ruby-based tool exists that can convert between the diagnostic notation and binary.  This tool can be installed with the command line: </t>
-      <sourcecode type=""><![CDATA[gem install cbor-diag]]></sourcecode>
-      <t>The diagnostic notation can be converted into binary files using the following command line: </t>
+      <t>The examples are presented using the CBOR's diagnostic notation.  A Ruby-based tool exists that can convert between the diagnostic notation and binary.  This tool can be installed with the command line:
+      </t>
+      <sourcecode type=""><![CDATA[gem install cbor-diag]]>
+      </sourcecode>
+      <t>The diagnostic notation can be converted into binary files using the following command line:
+      </t>
       <sourcecode type=""><![CDATA[diag2cbor.rb < inputfile > outputfile
-]]></sourcecode>
-      <t>The examples can be extracted from the XML version of this document via an XPath expression as all of the sourcecode is tagged with the attribute type='CBORdiag'.  (Depending on the XPath evaluator one is using, it may be necessary to deal with &amp;gt; as an entity.) </t>
-      <sourcecode type="XPATH"><![CDATA[//sourcecode[@type='CDDL']/text()]]></sourcecode>
+]]>
+      </sourcecode>
+      <t>The examples can be extracted from the XML version of this document via an XPath expression as all of the sourcecode is tagged with the attribute type='CBORdiag'.  (Depending on the XPath evaluator one is using, it may be necessary to deal with &amp;gt; as an entity.)
+      </t>
+      <sourcecode type="XPATH"><![CDATA[//sourcecode[@type='CDDL']/text()]]>
+      </sourcecode>
       <section anchor="SignedExamples">
         <name>Examples of Signed Messages</name>
-        <section anchor="Appendix_B_1_3">
+        <section anchor="Appendix_A_1_1">
             <name>Countersignature</name>
           <t>This example uses the following:
           </t>
@@ -716,13 +709,14 @@ This document removes inconsistencies with other specifications of JSON, repairs
     ]
   ]
 )
-]]></sourcecode>
+]]>
+        </sourcecode>
         </section>
       </section>
 
       <section anchor="EnvelopedExamples">
         <name>Examples of Enveloped Messages</name>
-        <section anchor="Appendix_B_3_3">
+        <section anchor="Appendix_A_2_1">
             <name>Countersignature on Encrypted Content</name>
           <t>This example uses the following:
           </t>
@@ -775,17 +769,9 @@ bf054e1c7b4d91d6280',
     ]
   ]
 )
-]]></sourcecode>
+]]>
+        </sourcecode>
         </section>
-      </section>
-      <section anchor="EncryptExamples">
-        <name>Examples of Encrypted Messages</name>
-      </section>
-      <section anchor="MacExamples">
-        <name>Examples of MACed Messages</name>
-      </section>
-      <section anchor="Mac0Examples">
-        <name>Examples of MAC0 Messages</name>
       </section>
     </section>
     <section numbered="false">
