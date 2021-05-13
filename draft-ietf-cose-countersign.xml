@@ -521,6 +521,9 @@ array to avoid confusion.
       </ul>
       <t>Analysis of the size of encrypted messages can provide information about the plaintext messages. This specification does not provide a uniform method for padding messages prior to encryption. An observer can distinguish between two different messages (for example, 'YES' and 'NO') based on the length for all of the content encryption algorithms that are defined in <xref target="I-D.ietf-cose-rfc8152bis-algs"/>.  This means that it is up to the applications to specify how content padding is to be done to prevent or discourage such analysis.  (For example, the text strings could be defined as 'YES' and 'NO '.)
       </t>
+	    
+	<t>Countersignatures of COSE_Encrypt and COSE_Mac with short tags and non-empty external_aad do not at all give the security properties normally associated with the same algorithm used in COSE_Sign. To provide 128-bit security against collision attacks, the tag length MUST be at least 256-bits. A countersignature of a COSE_Mac with AES-MAC 256/128 only gives 64-bit security and a countersignature of a COSE_Encrypt with AES-CCM-16-64-128 only gives 32-bit security. Another solution is to provide the same external_aad used in the COSE_Encrypt and COSE_Mac to the countersignature algorithm, but this external_aad is typically not available to the party performing or verifying the countersignature.</t>
+	    
     </section>
 
     <section removeInRFC="true">
