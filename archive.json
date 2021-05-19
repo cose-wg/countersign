@@ -1,0 +1,174 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2020-12-08T00:12:24.611262+00:00",
+  "repo": "cose-wg/countersign",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 3,
+      "id": "MDU6SXNzdWU3NDgwNjUwNDI=",
+      "title": "GitHub Examples repository",
+      "url": "https://github.com/cose-wg/countersign/issues/3",
+      "state": "CLOSED",
+      "author": "russhousley",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I cannot find the existing examples from the document in the GitHub Examples repository, despite Appendix A saying that they are there.",
+      "createdAt": "2020-11-21T17:42:10Z",
+      "updatedAt": "2020-11-21T17:56:36Z",
+      "closedAt": "2020-11-21T17:56:36Z",
+      "comments": [
+        {
+          "author": "russhousley",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I removed the pointer to GitHub.",
+          "createdAt": "2020-11-21T17:56:36Z",
+          "updatedAt": "2020-11-21T17:56:36Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTAwMDU3Nzg4",
+      "title": "Add Russ Housley as a document editor",
+      "url": "https://github.com/cose-wg/countersign/pull/1",
+      "state": "MERGED",
+      "author": "russhousley",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add Russ Housley as a document editor.  No changes to the body of the document.",
+      "createdAt": "2020-10-08T16:50:56Z",
+      "updatedAt": "2020-10-08T16:53:29Z",
+      "baseRepository": "cose-wg/countersign",
+      "baseRefName": "main",
+      "baseRefOid": "edefb4fc3ac6116697d5391b08b2cacbcb315582",
+      "headRepository": "cose-wg/countersign",
+      "headRefName": "new_editor",
+      "headRefOid": "2fa749c4431a45c1f7249c04bbb4e3875b965464",
+      "closedAt": "2020-10-08T16:51:44Z",
+      "mergedAt": "2020-10-08T16:53:29Z",
+      "mergedBy": "russhousley",
+      "mergeCommit": {
+        "oid": "a83d32177b26acac684baf31a778028ae7a17f7d"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTIxNTY2NzYy",
+      "title": "Update draft-ietf-cose-countersign.xml",
+      "url": "https://github.com/cose-wg/countersign/pull/2",
+      "state": "OPEN",
+      "author": "russhousley",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Remove the sections from the Examples Applenix that were blank, clean up the Security Considerations, and narrow the table in the IANA considerations.",
+      "createdAt": "2020-11-16T10:27:17Z",
+      "updatedAt": "2020-12-06T18:17:46Z",
+      "baseRepository": "cose-wg/countersign",
+      "baseRefName": "main",
+      "baseRefOid": "a83d32177b26acac684baf31a778028ae7a17f7d",
+      "headRepository": "cose-wg/countersign",
+      "headRefName": "fewer_examples",
+      "headRefOid": "35ca656f68c6ddd6d908bdd1c632b9b2913fe01c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTQ1NzM0MjQ5",
+          "commit": {
+            "abbreviatedOid": "35ca656"
+          },
+          "author": "ivajloip",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "Looks good to me! Thanks! Let us know if you want us to merge it or you plan to do that yourself. ",
+          "createdAt": "2020-12-06T18:17:46Z",
+          "updatedAt": "2020-12-06T18:17:46Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTM0MDIzMzAw",
+      "title": "Update examples",
+      "url": "https://github.com/cose-wg/countersign/pull/4",
+      "state": "OPEN",
+      "author": "jfhamme-cccs",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Examples using the code points proposed for early allocation.  If IANA allocates different values, the examples must be updated.",
+      "createdAt": "2020-12-07T23:54:10Z",
+      "updatedAt": "2020-12-07T23:54:10Z",
+      "baseRepository": "cose-wg/countersign",
+      "baseRefName": "main",
+      "baseRefOid": "a83d32177b26acac684baf31a778028ae7a17f7d",
+      "headRepository": "jfhamme-cccs/countersign",
+      "headRefName": "update_examples",
+      "headRefOid": "23aa7001b7759fe3289fe8e07eb57daed612db43",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
