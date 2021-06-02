@@ -6,7 +6,7 @@ COSE Working Group                                             J. Schaad
 Internet-Draft                                            August Cellars
 Updates: 8152 (if approved)                              R. Housley, Ed.
 Intended status: Standards Track                          Vigil Security
-Expires: 20 November 2021                                    19 May 2021
+Expires: 4 December 2021                                     2 June 2021
 
 
       CBOR Object Signing and Encryption (COSE): Countersignatures
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 November 2021.
+   This Internet-Draft will expire on 4 December 2021.
 
 Copyright Notice
 
@@ -105,15 +105,14 @@ Table of Contents
    There has been an increased focus on small, constrained devices that
    make up the Internet of Things (IoT).  One of the standards that has
    come out of this process is "Concise Binary Object Representation
-   (CBOR)" [I-D.ietf-cbor-7049bis].  CBOR extended the data model of the
-   JavaScript Object Notation (JSON) [STD90] by allowing for binary
-   data, among other changes.  CBOR has been adopted by several of the
-   IETF working groups dealing with the IoT world as their encoding of
-   data structures.  CBOR was designed specifically both to be small in
-   terms of messages transported and implementation size and to be a
-   schema-free decoder.  A need exists to provide message security
-   services for IoT, and using CBOR as the message-encoding format makes
-   sense.
+   (CBOR)" [RFC8949].  CBOR extended the data model of the JavaScript
+   Object Notation (JSON) [STD90] by allowing for binary data, among
+   other changes.  CBOR has been adopted by several of the IETF working
+   groups dealing with the IoT world as their encoding of data
+   structures.  CBOR was designed specifically both to be small in terms
+   of messages transported and implementation size and to be a schema-
+   free decoder.  A need exists to provide message security services for
+   IoT, and using CBOR as the message-encoding format makes sense.
 
    During the process of advancing COSE to an Internet Standard, it was
    noticed the description of the security properties of
@@ -254,7 +253,7 @@ Table of Contents
    security structures defined.  It needs to be noted that the
    countersignature needs to be treated as a separate operation from the
    initial operation even if it is applied by the same user as is done
-   in [I-D.ietf-core-groupcomm-bis].
+   in [I-D.ietf-core-oscore-groupcomm].
 
    COSE supports two different forms for countersignatures.  Full
    countersignatures use the structure COSE_Countersignature.  This is
@@ -452,8 +451,8 @@ Table of Contents
 
    In order to always regenerate the same byte string for the "to be
    signed" value, the deterministic encoding rules defined in
-   Section 4.2 of [I-D.ietf-cbor-7049bis].  These rules match the ones
-   laid out in Section 11 of [I-D.ietf-cose-rfc8152bis-struct].
+   Section 4.2 of [RFC8949].  These rules match the ones laid out in
+   Section 9 of [I-D.ietf-cose-rfc8152bis-struct].
 
 5.  IANA Considerations
 
@@ -681,12 +680,10 @@ Table of Contents
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
-   [I-D.ietf-cbor-7049bis]
-              Bormann, C. and P. Hoffman, "Concise Binary Object
-              Representation (CBOR)", Work in Progress, Internet-Draft,
-              draft-ietf-cbor-7049bis-16, 30 September 2020,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-cbor-
-              7049bis-16.txt>.
+   [RFC8949]  Bormann, C. and P. Hoffman, "Concise Binary Object
+              Representation (CBOR)", STD 94, RFC 8949,
+              DOI 10.17487/RFC8949, December 2020,
+              <https://www.rfc-editor.org/info/rfc8949>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -730,13 +727,13 @@ Table of Contents
               Record Syntax (ERS)", RFC 4998, DOI 10.17487/RFC4998,
               August 2007, <https://www.rfc-editor.org/info/rfc4998>.
 
-   [I-D.ietf-core-groupcomm-bis]
-              Dijk, E., Wang, C., and M. Tiloca, "Group Communication
-              for the Constrained Application Protocol (CoAP)", Work in
-              Progress, Internet-Draft, draft-ietf-core-groupcomm-bis-
-              03, 22 February 2021,
+   [I-D.ietf-core-oscore-groupcomm]
+              Tiloca, M., Selander, G., Palombini, F., Mattsson, J. P.,
+              and J. Park, "Group OSCORE - Secure Group Communication
+              for CoAP", Work in Progress, Internet-Draft, draft-ietf-
+              core-oscore-groupcomm-11, 22 February 2021,
               <https://datatracker.ietf.org/doc/html/draft-ietf-core-
-              groupcomm-bis-03.txt>.
+              oscore-groupcomm-11.txt>.
 
    [I-D.ietf-cose-rfc8152bis-struct]
               Schaad, J., "CBOR Object Signing and Encryption (COSE):
