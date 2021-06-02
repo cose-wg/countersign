@@ -67,7 +67,7 @@ I have switched to the single word version except for tables 3 and 4 where it ca
       <name>Introduction</name>
       <t>
         There has been an increased focus on small, constrained devices that make up the Internet of Things (IoT). 
-        One of the standards that has come out of this process is "Concise Binary Object Representation (CBOR)" <xref target="I-D.ietf-cbor-7049bis"/>. 
+        One of the standards that has come out of this process is "Concise Binary Object Representation (CBOR)" <xref target="RFC8949"/>. 
         CBOR extended the data model of the JavaScript Object Notation (JSON) <xref target="STD90"/> by allowing for binary data, among other changes. 
         CBOR has been adopted by several of the IETF working groups dealing with the IoT world as their encoding of data structures. 
         CBOR was designed specifically both to be small in terms of messages transported and implementation size and to be a schema-free decoder. 
@@ -201,7 +201,7 @@ Internal_Types = Countersign_structure / COSE_Countersignature0
         A normal example of a countersignature is the signature that a notary public places on a document as witnessing that you have signed the document.
         Thus applying a countersignature to either the COSE_Signature or COSE_Sign1 objects match this traditional definition.
         This document extends the context of a countersignature to allow it to be applied to all of the security structures defined.
-        It needs to be noted that the countersignature needs to be treated as a separate operation from the initial operation even if it is applied by the same user as is done in <xref target="I-D.ietf-core-groupcomm-bis"/>.
+        It needs to be noted that the countersignature needs to be treated as a separate operation from the initial operation even if it is applied by the same user as is done in <xref target="I-D.ietf-core-oscore-groupcomm"/>.
       </t>
 
       <t>
@@ -416,8 +416,8 @@ array to avoid confusion.
     <section anchor="CBOR-Canonical">
       <name>CBOR Encoding Restrictions</name>
       <t>
-        In order to always regenerate the same byte string for the "to be signed" value, the deterministic encoding rules defined in <relref section="4.2" target="I-D.ietf-cbor-7049bis"/>.
-        These rules match the ones laid out in <relref section="11" target="I-D.ietf-cose-rfc8152bis-struct"/>.
+        In order to always regenerate the same byte string for the "to be signed" value, the deterministic encoding rules defined in <relref section="4.2" target="RFC8949"/>.
+        These rules match the ones laid out in <relref section="9" target="I-D.ietf-cose-rfc8152bis-struct"/>.
       </t>
     </section>
 
@@ -609,7 +609,7 @@ array to avoid confusion.
       <references>
         <name>Normative References</name>
         <xi:include href="bibxml/reference.RFC.2119.xml"/>
-        <xi:include href="bibxml3/reference.I-D.ietf-cbor-7049bis.xml"/>
+        <xi:include href="bibxml/reference.RFC.8949.xml"/>
         <xi:include href="bibxml/reference.RFC.8174.xml"/>
         <xi:include href="bibxml3/reference.I-D.ietf-cose-rfc8152bis-algs.xml"/>
       </references>
@@ -647,7 +647,7 @@ This document removes inconsistencies with other specifications of JSON, repairs
         <xi:include href="bibxml/reference.RFC.7252.xml"/>
         <xi:include href="bibxml/reference.RFC.7942.xml"/>
         <xi:include href="bibxml/reference.RFC.4998.xml"/>
-        <xi:include href="bibxml3/reference.I-D.ietf-core-groupcomm-bis.xml"/>
+        <xi:include href="bibxml3/reference.I-D.ietf-core-oscore-groupcomm.xml"/>
         <xi:include href="bibxml3/reference.I-D.ietf-cose-rfc8152bis-struct.xml"/>
         <xi:include href="bibxml/reference.RFC.8613.xml"/>
       </references>
