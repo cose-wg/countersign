@@ -1487,17 +1487,17 @@ COSE_Countersignature0 = bstr
           <li id="section-3.3-2.1">
             <p id="section-3.3-2.1.1">
               A context text string identifying the context of the signature.  The context text string is:<a href="#section-3.3-2.1.1" class="pilcrow">¶</a></p>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="section-3.3-2.1.2.1">
+<ul class="ulEmpty normal">
+<li class="ulEmpty normal" id="section-3.3-2.1.2.1">
                 "CounterSignature" for signatures using the COSE_Countersignature structure when other_fields is absent.<a href="#section-3.3-2.1.2.1" class="pilcrow">¶</a>
 </li>
-              <li class="normal ulEmpty" id="section-3.3-2.1.2.2">
+              <li class="ulEmpty normal" id="section-3.3-2.1.2.2">
                 "CounterSignature0" for signatures using the COSE_Countersignature0 structure when other_fields is absent.<a href="#section-3.3-2.1.2.2" class="pilcrow">¶</a>
 </li>
-              <li class="normal ulEmpty" id="section-3.3-2.1.2.3">
+              <li class="ulEmpty normal" id="section-3.3-2.1.2.3">
                 "CounterSignatureV2" for signatures using the COSE_Countersignature structure when other_fields is present.<a href="#section-3.3-2.1.2.3" class="pilcrow">¶</a>
 </li>
-              <li class="normal ulEmpty" id="section-3.3-2.1.2.4">
+              <li class="ulEmpty normal" id="section-3.3-2.1.2.4">
                 "CounterSignature0V2" for signatures using the COSE_Countersignature0 structure when other_fields is present.<a href="#section-3.3-2.1.2.4" class="pilcrow">¶</a>
 </li>
             </ul>
@@ -1575,7 +1575,7 @@ Countersign_structure = [
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-cbor-encoding-restrictions" class="section-name selfRef">CBOR Encoding Restrictions</a>
       </h2>
 <p id="section-4-1">
-        In order to always regenerate the same byte string for the "to be signed" value, the core deterministic encoding rules defined in <span><a href="https://rfc-editor.org/rfc/rfc8949#section-4.2.1" class="relref">Section 4.2.1</a> of [<a href="#RFC8949" class="xref">RFC8949</a>]</span>.
+        In order to always regenerate the same byte string for the "to be signed" value, follow the core deterministic encoding rules defined in <span><a href="https://rfc-editor.org/rfc/rfc8949#section-4.2.1" class="relref">Section 4.2.1</a> of [<a href="#RFC8949" class="xref">RFC8949</a>]</span>.
         These rules match the ones laid out in <span><a href="https://tools.ietf.org/html/draft-ietf-cose-rfc8152bis-struct-15#section-9" class="relref">Section 9</a> of [<a href="#I-D.ietf-cose-rfc8152bis-struct" class="xref">I-D.ietf-cose-rfc8152bis-struct</a>]</span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
 </section>
 </div>

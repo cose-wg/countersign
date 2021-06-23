@@ -453,9 +453,9 @@ Table of Contents
 4.  CBOR Encoding Restrictions
 
    In order to always regenerate the same byte string for the "to be
-   signed" value, the core deterministic encoding rules defined in
-   Section 4.2.1 of [RFC8949].  These rules match the ones laid out in
-   Section 9 of [I-D.ietf-cose-rfc8152bis-struct].
+   signed" value, follow the core deterministic encoding rules defined
+   in Section 4.2.1 of [RFC8949].  These rules match the ones laid out
+   in Section 9 of [I-D.ietf-cose-rfc8152bis-struct].
 
 5.  IANA Considerations
 
