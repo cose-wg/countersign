@@ -6,7 +6,7 @@ COSE Working Group                                             J. Schaad
 Internet-Draft                                            August Cellars
 Updates: 8152 (if approved)                              R. Housley, Ed.
 Intended status: Standards Track                          Vigil Security
-Expires: 4 December 2021                                     2 June 2021
+Expires: 25 December 2021                                   23 June 2021
 
 
       CBOR Object Signing and Encryption (COSE): Countersignatures
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 December 2021.
+   This Internet-Draft will expire on 25 December 2021.
 
 Copyright Notice
 
@@ -288,13 +288,16 @@ Table of Contents
    COSE_Encrypt or COSE_Encrypt0, the existence of the encrypted data is
    attested to.  It should be noted that there is a big difference
    between attesting to the encrypted data as opposed to attesting to
-   the unencrypted data.  If the latter is what is desired, then one
-   needs to apply a signature to the data and then encrypt that.  It is
-   always possible to construct cases where the use of two different
-   keys will appear to result in a successful decryption (the tag check
-   success), but which produce two completely different plaintexts.
-   This situation is not detectable by a countersignature on the
-   encrypted data.
+   the plaintext data.  Usually, the signer wishes to countersign the
+   plaintext data, and then encrypt the data along with the
+   countersignature.  This approach prevents an attacker from stripping
+   countersignatures.  In addition, this approach prevents an observer
+   from linking the public keys needed to verify the countersignatures
+   across different payloads.  It is always possible to construct cases
+   where the use of two different keys will appear to result in a
+   successful decryption (the tag check success), but which produce two
+   completely different plaintexts.  This situation is not detectable by
+   a countersignature on the encrypted data.
 
 3.1.  Full Countersignatures
 
@@ -450,8 +453,8 @@ Table of Contents
 4.  CBOR Encoding Restrictions
 
    In order to always regenerate the same byte string for the "to be
-   signed" value, the deterministic encoding rules defined in
-   Section 4.2 of [RFC8949].  These rules match the ones laid out in
+   signed" value, the core deterministic encoding rules defined in
+   Section 4.2.1 of [RFC8949].  These rules match the ones laid out in
    Section 9 of [I-D.ietf-cose-rfc8152bis-struct].
 
 5.  IANA Considerations
@@ -1059,6 +1062,9 @@ Acknowledgments
 
    Jim Schaad and Jonathan Hammell provided the examples in the
    Appendix.
+
+   Thanks to Carsten Bormann and John Mattsson for thoughtful review and
+   comment.
 
    {{{ RFC EDITOR: Please remove Russ Housley as an author of this
    document at publication.  Jim Schaad should be listed as the sole
