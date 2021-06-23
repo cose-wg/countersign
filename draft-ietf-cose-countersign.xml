@@ -418,7 +418,7 @@ array to avoid confusion.
     <section anchor="CBOR-Canonical">
       <name>CBOR Encoding Restrictions</name>
       <t>
-        In order to always regenerate the same byte string for the "to be signed" value, the core deterministic encoding rules defined in <relref section="4.2.1" target="RFC8949"/>.
+        In order to always regenerate the same byte string for the "to be signed" value, follow the core deterministic encoding rules defined in <relref section="4.2.1" target="RFC8949"/>.
         These rules match the ones laid out in <relref section="9" target="I-D.ietf-cose-rfc8152bis-struct"/>.
       </t>
     </section>
