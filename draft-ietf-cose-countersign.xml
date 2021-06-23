@@ -228,8 +228,10 @@ Internal_Types = Countersign_structure / COSE_Countersignature0
         When done on a COSE_Sign, this is the same as applying a second signature to the payload and adding a parallel signature as a new COSE_Signature is the preferred method.
         When done on a COSE_Mac or COSE_Mac0, the payload is included as well as the MAC value.
         When done on a COSE_Encrypt or COSE_Encrypt0, the existence of the encrypted data is attested to.
-        It should be noted that there is a big difference between attesting to the encrypted data as opposed to attesting to the unencrypted data.
-        If the latter is what is desired, then one needs to apply a signature to the data and then encrypt that.
+        It should be noted that there is a big difference between attesting to the encrypted data as opposed to attesting to the plaintext data.
+        Usually, the signer wishes to countersign the plaintext data, and then encrypt the data along with the countersignature.
+        This approach prevents an attacker from stripping countersignatures.
+        In addition, this approach prevents an observer from linking the public keys needed to verify the countersignatures across different payloads.
         It is always possible to construct cases where the use of two different keys will appear to result in a successful decryption (the tag check success), but which produce two completely different plaintexts.
         This situation is not detectable by a countersignature on the encrypted data.
       </t>
@@ -416,7 +418,7 @@ array to avoid confusion.
     <section anchor="CBOR-Canonical">
       <name>CBOR Encoding Restrictions</name>
       <t>
-        In order to always regenerate the same byte string for the "to be signed" value, the deterministic encoding rules defined in <relref section="4.2" target="RFC8949"/>.
+        In order to always regenerate the same byte string for the "to be signed" value, the core deterministic encoding rules defined in <relref section="4.2.1" target="RFC8949"/>.
         These rules match the ones laid out in <relref section="9" target="I-D.ietf-cose-rfc8152bis-struct"/>.
       </t>
     </section>
@@ -954,6 +956,7 @@ C3A08D8C58'
       <t>The initial version of the specification was based to some degree on the outputs of the JOSE and S/MIME working groups.</t>
       <t>Jim Schaad passed on 3 October 2020.  This document is primarily his work.  Russ Housley served as the document editor after Jim's untimely death, mostly helping with the approval and publication processes.  Jim deserves all credit for the technical content.</t>
       <t>Jim Schaad and Jonathan Hammell provided the examples in the Appendix.</t>
+      <t>Thanks to Carsten Bormann and John Mattsson for thoughtful review and comment.</t>
       <!-- RFC EDITOR - Please remove this note before publishing -->
       <t>{{{ RFC EDITOR: Please remove Russ Housley as an author of this document at publication.  Jim Schaad should be listed as the sole author. }}}</t>
       <!--
